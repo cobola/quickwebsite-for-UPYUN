@@ -62,7 +62,7 @@ public class UpYun {
     public static final String ED_CTT = "v3.api.upyun.com";
 
     // 默认不开启debug模式
-    public boolean debug = false;
+    public boolean debug = true;
     // 默认的超时时间：30秒
     private int timeout = 30 * 1000;
     // 默认为自动识别接入点

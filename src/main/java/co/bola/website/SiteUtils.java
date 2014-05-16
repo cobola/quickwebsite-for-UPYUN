@@ -33,7 +33,9 @@ public class SiteUtils {
         UpYun upyun = new UpYun(Constants.UP_BUCKET_NAME, Constants.UP_USER_NAME, Constants.UP_USER_PWD);
 
 
+        upyun.deleteFile("index.json");
         String jstr = upyun.readFile("index.json");
+
 
 
         JSONObject jsonObject = JSON.parseObject(jstr);
@@ -67,11 +69,12 @@ public class SiteUtils {
                 JSONObject obj = new JSONObject();
                 obj.put("id", id);
                 obj.put("title", e.text());
-                if (href.indexOf("http") != -1) {
+                if (href.startsWith("http")) {
                     obj.put("href", href);
                 } else {
                     obj.put("href", HUIHUI + e.attr("href"));
                 }
+                obj.put("content",e.text());
                 hs.add(obj);
 
             }
